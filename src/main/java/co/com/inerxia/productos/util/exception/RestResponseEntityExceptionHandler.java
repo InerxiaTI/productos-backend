@@ -51,4 +51,13 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
                 ex.getMensaje()),
                 HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(DataBaseException.class)
+    public final ResponseEntity<StandardResponse> handleDataBaseException(HttpServletRequest request, DataBaseException ex) {
+        logger.error(request.getRequestURL().toString(), ex);
+        return new ResponseEntity<>(new StandardResponse(
+                StandardResponse.EstadoStandardResponse.ERROR,
+                ex.getMessage()),
+                HttpStatus.CONFLICT);
+    }
 }
