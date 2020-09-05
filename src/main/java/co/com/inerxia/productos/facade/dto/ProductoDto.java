@@ -1,7 +1,5 @@
 package co.com.inerxia.productos.facade.dto;
 
-import co.com.inerxia.productos.model.Proveedor;
-
 import java.time.LocalDate;
 
 public class ProductoDto {
@@ -15,7 +13,7 @@ public class ProductoDto {
     private String marca;
     private LocalDate fecha_compra;
     private String foto;
-    private Proveedor proveedor_fk;
+    private ProveedorDto proveedor_fk;
     private Integer idProveedor_fk;
 
     public Integer getId() {
@@ -90,11 +88,11 @@ public class ProductoDto {
         this.foto = foto;
     }
 
-    public Proveedor getProveedor_fk() {
+    public ProveedorDto getProveedor_fk() {
         return proveedor_fk;
     }
 
-    public void setProveedor_fk(Proveedor proveedor_fk) {
+    public void setProveedor_fk(ProveedorDto proveedor_fk) {
         this.proveedor_fk = proveedor_fk;
     }
 

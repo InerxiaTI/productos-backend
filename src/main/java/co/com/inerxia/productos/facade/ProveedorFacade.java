@@ -3,9 +3,13 @@ package co.com.inerxia.productos.facade;
 import co.com.inerxia.productos.facade.dto.ProveedorDto;
 import co.com.inerxia.productos.facade.mapper.ProveedorMapper;
 import co.com.inerxia.productos.service.ProveedorService;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
+@Transactional
 public class ProveedorFacade {
 
     private ProveedorMapper proveedorMapper;

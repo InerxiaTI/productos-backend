@@ -8,7 +8,7 @@ public class Proveedor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "id")
     private Integer id;
 
     @Column(name = "nombre_empresa", nullable = false)
