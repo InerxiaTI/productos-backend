@@ -52,6 +52,20 @@ public class ProductoController {
                 productoDtoList));
     }
 
+    @GetMapping("/consultar-varios/{texto}")
+    @ApiOperation(value = "Consulta los productos que se buscan por nombre, descripcion", response = List.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "La petición fue procesada con éxito"),
+            @ApiResponse(code = 400, message = "La petición es inválida"),
+            @ApiResponse(code = 500, message = "Error del servidor al procesar la respuesta"),
+    })
+    public ResponseEntity<StandardResponse<List<ProductoDto>>> consultarPorVarios(@PathVariable(value = "texto") String texto){
+        List<ProductoDto> productoDtoList = productoFacade.consultarPorVarios(texto);
+        return ResponseEntity.ok(new StandardResponse<>(
+                StandardResponse.EstadoStandardResponse.OK,
+                productoDtoList));
+    }
+
     @PostMapping
     @ApiOperation(value = "Crea un producto", response = ProductoDto.class)
     @ApiResponses(value = {

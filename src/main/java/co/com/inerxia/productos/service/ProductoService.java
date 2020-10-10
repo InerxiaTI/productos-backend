@@ -36,6 +36,14 @@ public class ProductoService {
         return productoList;
     }
 
+    public List<Producto> consultarPorVarios(String texto){
+        List<Producto> productoList = productoRepository.consultarPorVarios(texto);
+        if (productoList.isEmpty()){
+            throw new DataNotFoundException("exception.data_not_found.producto");
+        }
+        return productoList;
+    }
+
     public Producto create(Producto producto){
         if(Objects.nonNull(producto.getId())){
             Optional<Producto> productoOptional = productoRepository.findById(producto.getId());

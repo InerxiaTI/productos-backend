@@ -31,6 +31,10 @@ public class ProductoFacade {
         return productoMapper.toDto(productoService.findAll());
     }
 
+    public List<ProductoDto> consultarPorVarios(String texto){
+        return productoMapper.toDto(productoService.consultarPorVarios(texto));
+    }
+
     public ProductoDto create(ProductoDto productoDto){
         proveedorFacade.findById(productoDto.getIdProveedor_fk());
         return productoMapper.toDto(productoService.create(productoMapper.toEntity(productoDto)));
